@@ -77,26 +77,28 @@ int main(int argc, char *argv[])
 {
 	int isValid=1;
 	char number[MAX_DIGITS];
-        
-        printf("Please enter a number: ");
+
+  printf("Please enter a number: ");
 	scanf("%s",number);
-        int len=strlen(number);
-        
+  int len=strlen(number);
+
 	for ( int i=0;i<len;i++)
 	{
-            if(number[i]>='0'&&number[i]<='9')
-            {
+      if(number[i]>='0'&&number[i]<='9')
+      {
 
-            }else{isValid=-1;}
-
+			}else{isValid=-1;}
 	}
 
 	if(isValid!=-1)
 	{
-            struct BigInt big_int[MAX_DIGITS];
-            
-            strtobig_int(number,len,big_int);
-            print_big_int(big_int);
+      struct BigInt big_int[MAX_DIGITS];
+      strtobig_int(number,len,big_int);
+
+			for(int i=2;i<=9;i++)
+			{
+
+			}
 	}
 	else
 	{
@@ -108,11 +110,11 @@ int main(int argc, char *argv[])
 int strtobig_int(const char *str, int len, struct BigInt *big_int)
 {
     big_int->digit_count=len;
-    
+
     for(int i=0;i<len;i++)
     {
         big_int->digits[i]=str[i]-'0';
-        
+
     }
 }
 
@@ -121,7 +123,15 @@ void print_big_int(const struct BigInt *big_int)
     for(int i=0;i<big_int->digit_count;i++)
     {
         printf("%d",big_int->digits[i]);
-        
+
     }
-    
+
+}
+
+void multiply(const struct BigInt *big_int, int factor, struct BigInt *big_result)
+{
+	for(int i=big_result->digit_count;i>0;i--)
+	{
+		big_result->digits[i]=
+	}
 }
